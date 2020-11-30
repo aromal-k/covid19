@@ -1,0 +1,134 @@
+@import "../../../../../scss/base/all";
+@import "../../../../../scss/components/all";
+@import "../../../../../scss/layout/all";
+
+.sidebar-wrapper {
+  position: relative;
+  width: rem(90);
+  min-width: rem(90);
+  background-color: $blue-one;
+  border-radius: rem(15);
+  height: 100%;
+  margin: auto 0;
+  padding-top: rem(20);
+  ul {
+    width: 100%;
+    li {
+      cursor: pointer;
+      padding-left: rem(6);
+      .list-item {
+        border: none;
+        height: rem(80);
+        @include flexbox;
+        @include align-items(center);
+        @include justify-content(center);
+        img {
+          width: rem(32);
+        }
+      }
+      &.active {
+        padding-left: 0;
+        .list-item {
+          border-left: rem(6) solid $green-one;
+        }
+      }
+    }
+  }
+  .logout-icon {
+    position: absolute;
+    bottom: rem(30);
+    width: 100%;
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    cursor: pointer;
+    img {
+      width: rem(32);
+    }
+  }
+}
+
+@include desktop {
+  .sidebar-wrapper {
+    width: rem(64);
+    min-width: rem(64);
+    border-radius: rem(8);
+    ul {
+      li {
+        padding-left: rem(5);
+        .list-item {
+          height: rem(64);
+          img {
+            width: rem(24);
+          }
+        }
+        &.active {
+          .list-item {
+            border-left: rem(5) solid $green-one;
+          }
+        }
+      }
+    }
+    .logout-icon {
+      img {
+        width: rem(24);
+      }
+    }
+  }
+}
+@include tablet {
+  .sidebar-wrapper {
+    width: rem(64);
+    min-width: rem(64);
+    border-radius: rem(8);
+    ul {
+      li {
+        padding-left: rem(5);
+        .list-item {
+          height: rem(64);
+          img {
+            width: rem(24);
+          }
+        }
+        &.active {
+          .list-item {
+            border-left: rem(5) solid $green-one;
+          }
+        }
+      }
+    }
+    .logout-icon {
+      img {
+        width: rem(24);
+      }
+    }
+  }
+}
+@include mobile {
+  .sidebar-wrapper {
+    width: rem(80);
+    min-width: rem(80);
+    border-radius: rem(12);
+    ul {
+      li {
+        padding-left: rem(6);
+        .list-item {
+          height: rem(64);
+          img {
+            width: rem(32);
+          }
+        }
+        &.active {
+          .list-item {
+            border-left: rem(6) solid $green-one;
+          }
+        }
+      }
+    }
+    .logout-icon {
+      img {
+        width: rem(32);
+      }
+    }
+  }
+}

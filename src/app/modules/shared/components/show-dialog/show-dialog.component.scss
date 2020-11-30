@@ -1,0 +1,79 @@
+@import "../../../../../scss/base/all";
+@import "../../../../../scss/components/all";
+@import "../../../../../scss/layout/all";
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  z-index: 90;
+  .popup-wrapper {
+    padding: rem(40);
+    background: $white;
+    border-radius: rem(8);
+    width: 35%;
+    height: auto;
+    @include flexbox;
+    @include align-items(center);
+    @include flex-direction(column);
+    .heading {
+      color: $black;
+      font-size: rem(36);
+    }
+    .message {
+      color: $grey-three;
+      font-size: rem(24);
+      text-align: center;
+      margin-top: rem(32);
+    }
+    .popup-btns {
+      @include flexbox;
+      @include align-items(center);
+      @include justify-content(center);
+      margin-top: rem(32);
+      button:first-child {
+        margin-right: rem(15);
+      }
+    }
+  }
+}
+@include tablet {
+  .popup-overlay {
+    .popup-wrapper {
+      width: 50%;
+      .heading {
+        font-size: rem(32);
+      }
+      .message {
+        font-size: rem(24);
+        margin-top: rem(32);
+      }
+      .popup-btns {
+        margin-top: rem(32);
+      }
+    }
+  }
+}
+@include mobile {
+  .popup-overlay {
+    .popup-wrapper {
+      width: 80%;
+      .heading {
+        font-size: rem(32);
+      }
+      .message {
+        font-size: rem(24);
+        margin-top: rem(32);
+      }
+      .popup-btns {
+        margin-top: rem(32);
+      }
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.container {
+  width: 100%;
+  margin-top: rem(60);
+  .container-head {
+    @include flexbox;
+    @include align-items(center);
+    @include flex-direction(row);
+    h2 {
+      font-size: rem(48);
+      color: $grey-light;
+      flex-grow: 0;
+    }
+    .divider {
+      margin-left: rem(24);
+      flex-grow: 1;
+      height: 1px;
+      background-color: $grey-light;
+    }
+  }
+  .container-body {
+    margin-top: rem(50);
+    flex-wrap: wrap;
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(space-around);
+    @include flex-direction(row);
+    width: 100%;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+}
+.card-wrapper {
+  width: 30%;
+  padding: rem(20) 0;
+  .cards {
+    width: 100%;
+    height: rem(240);
+    border: 1px solid $blue-one;
+    border-radius: rem(10);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.19);
+    @include flexbox;
+    @include align-items(center);
+    @include justify-content(center);
+    @include flex-direction(column);
+    padding: rem(16);
+    .card-name {
+      font-size: rem(40);
+      color: $blue-one;
+    }
+    .total-count {
+      font-size: rem(64);
+      color: $blue-one;
+      padding-top: rem(30);
+    }
+    &:hover {
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.19);
+    }
+  }
+}
+@include desktop {
+  .card-wrapper {
+    .cards {
+      height: rem(220);
+      .card-name {
+        font-size: rem(32);
+        color: $blue-one;
+      }
+      .total-count {
+        font-size: rem(48);
+        color: $blue-one;
+      }
+    }
+  }
+}
+@include tablet {
+  .container {
+    margin-top: rem(40);
+    .container-head {
+      h2 {
+        font-size: rem(32);
+      }
+    }
+    .container-body {
+      margin-top: rem(40);
+    }
+  }
+  .card-wrapper {
+    .cards {
+      height: rem(160);
+      .card-name {
+        font-size: rem(24);
+      }
+      .total-count {
+        font-size: rem(32);
+      }
+    }
+  }
+}
+@include mobile {
+  .container {
+    margin-top: rem(40);
+    .container-head {
+      h2 {
+        font-size: rem(32);
+      }
+      .divider {
+        display: none !important;
+      }
+    }
+    .container-body {
+      margin-top: rem(40);
+    }
+  }
+  .card-wrapper {
+    width: 100%;
+    margin-bottom: rem(16);
+    .cards {
+      height: rem(160);
+      .card-name {
+        font-size: rem(24);
+      }
+      .total-count {
+        font-size: rem(32);
+      }
+    }
+  }
+}

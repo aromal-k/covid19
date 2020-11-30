@@ -1,0 +1,122 @@
+.form-wrapper {
+  width: 100%;
+}
+.required {
+  display: block;
+  color: $red;
+  font-size: rem(20);
+  text-align: center;
+  margin-bottom: rem(30);
+}
+.justify-space-even {
+  justify-content: space-evenly !important;
+}
+.left-align {
+  text-align: left !important;
+}
+.not-allowed {
+  cursor: not-allowed !important;
+}
+.disable-class {
+  opacity: 0.5 !important;
+  pointer-events: none !important;
+}
+.blue-arrow {
+  border: solid $blue-one;
+  border-width: 0 rem(3) rem(3) 0;
+  display: inline-block;
+  padding: rem(3);
+  &.down {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+  }
+  &.up {
+    transform: rotate(-135deg);
+    -webkit-transform: rotate(-135deg);
+  }
+  &.right {
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+  }
+  &.left {
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+  }
+}
+.w-30 {
+  width: 30% !important;
+}
+.w-40 {
+  width: 40% !important;
+}
+.w-45 {
+  width: 45% !important;
+}
+.p-t-4 {
+  padding-top: rem(4) !important;
+}
+::-webkit-scrollbar {
+  width: rem(5);
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 rem(6) rgba(140, 150, 174, 0.1);
+  opacity: 0.5;
+  border-radius: rem(2.5);
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: rem(2.5);
+  opacity: 0.1;
+  -webkit-box-shadow: inset 0 0 rem(6) rgba(140, 150, 174, 0.5);
+}
+.login-content {
+  .mat-typography p {
+    margin-bottom: rem(20);
+  }
+  .mat-card {
+    padding: rem(50) rem(30);
+  }
+  .mat-form-field {
+    width: 100%;
+  }
+}
+.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  margin-right: rem(30);
+}
+.loaders {
+  position: fixed;
+  height: 100%;
+  top: 0;
+  width: 100%;
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  left: 0;
+  z-index: 9999;
+}
+.search-sort-select {
+  .mat-form-field-appearance-legacy {
+    .mat-icon {
+      color: $grey-three;
+    }
+    .mat-form-field-flex {
+      padding: rem(20) rem(10);
+      border: 1px solid $grey-two;
+      border-radius: rem(10);
+    }
+    .mat-form-field-infix {
+      @include flexbox;
+      padding: 0;
+      border: none;
+    }
+  }
+  .mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: $white;
+    border: 1px solid $grey-two;
+    border-radius: rem(10);
+  }
+  .mat-form-field-underline {
+    display: none;
+  }
+}

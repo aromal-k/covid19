@@ -1,0 +1,94 @@
+/****  floating-Lable style start ****/
+.floating-label {
+  position: relative;
+  margin-bottom: rem(40);
+  .floating-input {
+    font-size: rem(18);
+    color: $blue-two;
+    padding: rem(8) 0;
+    display: block;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $grey-two;
+  }
+
+  .floating-input:focus {
+    outline: none;
+    border-bottom: 1px solid $grey-two;
+  }
+
+  .floating-input:focus ~ label,
+  .floating-input:not(:placeholder-shown) ~ label {
+    top: rem(-12);
+    font-size: rem(14);
+    color: $grey-two;
+    &.large {
+      font-size: rem(20);
+    }
+  }
+  /* active state */
+  .floating-input:focus ~ .bar:before,
+  .floating-input:focus ~ .bar:after {
+    width: 50%;
+  }
+  /* active state */
+  .floating-input:focus ~ .highlight {
+    -webkit-animation: inputHighlighter 0.3s ease;
+    -moz-animation: inputHighlighter 0.3s ease;
+    animation: inputHighlighter 0.3s ease;
+  }
+  label {
+    color: $grey-two;
+    font-size: rem(12);
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 0;
+    top: rem(8);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+    &.large {
+      font-size: rem(20);
+    }
+  }
+  .highlight {
+    position: absolute;
+    height: 50%;
+    width: 100%;
+    top: 15%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+  }
+}
+/* animation */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: $grey-two;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: $grey-two;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: $grey-two;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+/****  floating-Lable style end ****/

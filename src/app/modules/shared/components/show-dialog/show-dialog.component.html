@@ -1,0 +1,12 @@
+<div class="popup-overlay">
+  <div *ngIf="dialogInput" class="popup-wrapper">
+    <h2 class="heading">{{dialogInput.heading}}</h2>
+    <div class="message">
+      {{dialogInput.message}}
+    </div>
+    <div class="popup-btns">
+      <button mat-raised-button (click)="cancelAction()">{{dialogInput.secondaryBtn}}</button>
+      <button mat-raised-button color="primary" (click)="confirmAction()">{{dialogInput.primaryBtn}}</button>
+    </div>
+  </div>
+</div>

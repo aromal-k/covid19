@@ -1,0 +1,92 @@
+<div *ngIf="countryList.length != 0;">
+  <div class="listing-wrapper container">
+    <div class="container-head country-head">
+      <div class="search-sort-select">
+        <h2>Countries</h2>
+        <div *ngIf="countryList && countryList.length" class="page-filter">
+          <mat-form-field class="search-filter">
+            <input matInput name="search" placeholder="Search Country" [(ngModel)]="searchText">
+            <mat-icon>search</mat-icon>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Sort By</mat-label>
+            <mat-select disableRipple name="sort" [(ngModel)]="sortBy">
+              <mat-option value="country">Country Name</mat-option>
+              <mat-option value="cases">Number of cases</mat-option>
+              <mat-option value="deaths">Number of deaths</mat-option>
+              <mat-option value="recovered">Number of recovered</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- PAGINATION SECTION - START -->
+          <div *ngIf="paginationData?.totalLength" class="pagination">
+            <div class="pagination-wrapper">
+              <div class="pagination-container">
+                <div class="page-text">
+                  {{paginationData.currentPage}} to {{paginationData.totalPages}} of {{paginationData.totalLength}}
+                </div>
+                <pagination-controls (pageChange)="pageChange($event)" class="my-pagination" previousLabel=""
+                  nextLabel="">
+                </pagination-controls>
+              </div>
+
+            </div>
+          </div>
+          <!-- PAGINATION SECTION - END -->
+        </div>
+      </div>
+    </div>
+    <!-- CARDS LISTING CONTENT - START -->
+    <div *ngIf="countryList && countryList.length" class="container-body">
+      <div class="card-wrapper"
+        *ngFor="let country of countryList | filter: searchText | sort: sortBy | paginate: { itemsPerPage: paginationData.itemsPerPage, currentPage: paginationData.currentPage}">
+        <div class="cards">
+          <div class="country-row justify-space-even">
+            <div class="country-flag">
+              <img [src]="country.countryInfo.flag" alt="">
+            </div>
+            <div class="country-name">
+              {{country.country}}
+            </div>
+          </div>
+          <div class="country-row">
+            <div class="covid-data w-30">
+              <div class="count-label">Cases</div>
+              <div class="count-value">{{country.cases | number}}</div>
+            </div>
+            <div class="covid-data w-30">
+              <div class="count-label">Deaths</div>
+              <div class="count-value">{{country.deaths | number}}</div>
+            </div>
+            <div class="covid-data w-40">
+              <div class="count-label">Recovered</div>
+              <div class="count-value">{{country.recovered | number}}</div>
+            </div>
+          </div>
+          <div class="country-row">
+            <div class="covid-data w-30">
+              <div class="count-label">Tests</div>
+              <div class="count-value">{{country.tests | number}}</div>
+            </div>
+            <div class="covid-data w-30">
+              <div class="count-label">Population</div>
+              <div class="count-value">{{country.population | million:'1.0-1'}}m</div>
+            </div>
+            <div class="covid-data w-40 edit-country">
+              <span class="edit-icon" (click)="gotoEditCountry(country)">
+                <img src="assets/icons/edit.svg" alt="edit">
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="loaders" *ngIf="!paginationData?.totalLength">
+      <span class="required">No countries found</span>
+    </div>
+    <!-- CARDS LISTING CONTENT - END -->
+  </div>
+</div>
+<div class="loaders" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+</div>

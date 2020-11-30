@@ -1,0 +1,74 @@
+@import "../../../../scss/base/all";
+@import "../../../../scss/components/all";
+@import "../../../../scss/layout/all";
+.edit-wrapper {
+  height: 100%;
+  @include flexbox;
+  @include flex-direction(column);
+  padding: rem(40);
+}
+.edit-content {
+  width: 100%;
+  margin: rem(32) auto;
+  background: $white;
+  box-shadow: 0 7px 24px 0 rgba(212, 217, 235, 1);
+  border-radius: rem(15);
+  padding: 5%;
+}
+.edit-form {
+  .form-wrapper {
+    @include flexbox;
+    flex-wrap: wrap;
+    .floating-label {
+      width: 50%;
+    }
+    input {
+      font: rem(20);
+      padding: rem(16) 0;
+    }
+    label {
+      font-size: rem(20);
+    }
+  }
+  .btn-container {
+    position: absolute;
+    bottom: rem(72);
+  }
+}
+.right-input {
+  width: 45% !important;
+}
+.left-input {
+  width: 45% !important;
+  margin-right: 10%;
+}
+.input-margin {
+  margin-top: rem(40);
+  margin-bottom: rem(40);
+}
+.btn-container {
+  @include flexbox;
+  @include justify-content(flex-end);
+}
+.required {
+  font-size: rem(18);
+  padding-top: rem(6);
+  text-align: left;
+  margin-bottom: 0;
+}
+
+@include mobile {
+  .right-input {
+    width: 100% !important;
+  }
+  .left-input {
+    width: 100% !important;
+    margin-right: 0;
+  }
+  .edit-content {
+    padding-top: rem(30);
+  }
+  .input-margin {
+    margin-top: 0;
+  }
+}

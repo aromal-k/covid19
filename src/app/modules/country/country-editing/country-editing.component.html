@@ -1,0 +1,51 @@
+<div class="edit-wrapper">
+  <div *ngIf="selectedCountry" class="container">
+    <div class="container-head">
+      <h2>Edit {{selectedCountry.country}}</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="edit-content">
+      <!-- FORM FIELDS - START -->
+      <div class="edit-form">
+        <form [formGroup]="countryForm">
+          <div class="form-wrapper">
+            <div class="floating-label left-input">
+              <input class="floating-input p-l-10" formControlName="cases" type="text" placeholder=" ">
+              <span class="highlight"></span>
+              <label class="large">Cases</label>
+              <span *ngIf="countryForm.get('cases').status === 'INVALID'" class="required">Please enter a
+                valid number</span>
+            </div>
+            <div class="floating-label right-input">
+              <input class="floating-input p-l-10" formControlName="deaths" type="text" placeholder=" ">
+              <span class="highlight"></span>
+              <label class="large">Deaths</label>
+              <span *ngIf="countryForm.get('deaths').status === 'INVALID'" class="required">Please enter a
+                valid number</span>
+            </div>
+            <div class="floating-label left-input input-margin">
+              <input class="floating-input p-l-10" type="text" formControlName="recovered" placeholder=" ">
+              <span class="highlight"></span>
+              <label class="large">Recovered</label>
+              <span *ngIf="countryForm.get('recovered').status === 'INVALID'" class="required">Please
+                enter a valid number</span>
+            </div>
+            <div class="floating-label right-input input-margin">
+              <input class="floating-input p-l-10" type="text" formControlName="tests" placeholder=" ">
+              <span class="highlight"></span>
+              <label class="large">Tests</label>
+              <span *ngIf="countryForm.get('tests').status === 'INVALID'" class="required">Please enter a
+                valid number</span>
+            </div>
+          </div>
+        </form>
+      </div>
+      <!-- FORM FIELDS - END -->
+    </div>
+    <div *ngIf="selectedCountry" class="btn-container">
+      <button class="btn sec-btn" (click)="cancelEdit()">Cancel</button>
+      <button class="btn primary-btn" [disabled]="!this.countryForm.valid" [ngClass]="{'disable-class': !this.countryForm.valid}"
+        (click)="updateCountry()">Save</button>
+    </div>
+  </div>
+</div>

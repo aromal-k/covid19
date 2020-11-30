@@ -1,0 +1,18 @@
+<div class="sidebar-wrapper">
+  <ul>
+    <li [routerLink]="['/home/dashboard']" routerLinkActive="active">
+      <div class="list-item">
+        <img src="assets/icons/dashboard.svg" alt="image">
+      </div>
+    </li>
+    <li [routerLink]="['/home/country']" routerLinkActive="active">
+      <div class="list-item">
+        <img src="assets/icons/flag.svg" alt="image">
+      </div>
+    </li>
+  </ul>
+  <div class="logout-icon" (click)="logoutClick()">
+    <img src="assets/icons/logout.svg" alt="Logout">
+  </div>
+</div>
+<app-show-dialog *ngIf="showPopup" [dialogInput]="popupData" (dialogOutput)="dialogEvent($event)"></app-show-dialog>

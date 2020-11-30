@@ -1,0 +1,36 @@
+.btn-container {
+  width: 100%;
+}
+.btn {
+  @include flexbox;
+  @include align-items(center);
+  @include justify-content(center);
+  border: 0;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: rem(25);
+  box-shadow: 0 8px 9px 0 rgba(0, 0, 0, 0.1);
+}
+.btn-login {
+  height: rem(54);
+  width: 100%;
+  background-color: $blue-two;
+  color: $white;
+  font-size: rem(18);
+}
+.primary-btn {
+  height: rem(54);
+  width: rem(120);
+  background-color: $blue-two;
+  color: $white;
+  font-size: rem(18);
+  margin-left: rem(32);
+}
+.sec-btn {
+  height: rem(54);
+  width: rem(120);
+  background-color: $grey-four;
+  color: $grey-three;
+  font-size: rem(18);
+  border: 1px solid $grey-five;
+}

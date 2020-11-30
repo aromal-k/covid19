@@ -1,0 +1,18 @@
+@import "../../../scss/base/all";
+@import "../../../scss/components/all";
+@import "../../../scss/layout/all";
+.content-wrapper {
+  @include flexbox;
+  height: 100vh;
+  background-color: $white;
+  padding: rem(15);
+  overflow-y: hidden;
+  .child-content-wrapper {
+    flex-grow: 1;
+    padding: rem(20);
+    overflow-y: scroll;
+  }
+}
+.icon {
+  fill: $white;
+}

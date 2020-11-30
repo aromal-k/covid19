@@ -1,0 +1,66 @@
+<div *ngIf="(covidCasesData$ | async) as covidCasesData;else loader">
+  <!-- TOTAL CONTAINER - START -->
+  <div class="dashboard-wrapper container">
+    <div class="container-head">
+      <h2>Total</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="container-body">
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Total Cases</div>
+          <div class="total-count">{{covidCasesData?.cases | number}}</div>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Total Deaths</div>
+          <div class="total-count">{{covidCasesData?.deaths| number}}</div>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Total Recovered</div>
+          <div class="total-count">{{covidCasesData?.recovered| number}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- TOTAL CONTAINER - END -->
+  <!-- TODAY CONTAINER - START -->
+  <div class="dashboard-wrapper container">
+    <div class="container-head">
+      <h2>Today</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="container-body">
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Cases</div>
+          <div class="total-count">{{covidCasesData?.todayCases| number}}</div>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Deaths</div>
+          <div class="total-count">{{covidCasesData?.todayDeaths| number}}</div>
+        </div>
+      </div>
+      <div class="card-wrapper">
+        <div class="cards">
+          <div class="card-name">Recovered</div>
+          <div class="total-count">{{covidCasesData?.todayRecovered| number}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TODAY CONTAINER - END -->
+</div>
+<!-- Loader Starts -->
+<ng-template #loader>
+  <div class="loaders">
+    <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+<!--Loader Ends -->

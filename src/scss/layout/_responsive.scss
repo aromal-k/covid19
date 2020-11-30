@@ -1,0 +1,48 @@
+@import "../base/media";
+/* font size setting for responsive screens */
+@include hd-screen {
+  html {
+    font-size: 0.83vw;
+  }
+}
+@include wxga-screen {
+  html {
+    font-size: 0.82vw;
+  }
+}
+@include widescreen {
+  html {
+    font-size: 0.83vw;
+  }
+}
+@include desktop {
+  html {
+    font-size: 1.1vw;
+  }
+}
+@include tablet {
+  html {
+    font-size: 1.8vw;
+  }
+}
+@include mobile {
+  html {
+    font-size: 3vw;
+  }
+  .login-wrapper {
+    background-size: 55% auto;
+    .login-container {
+      padding: rem(80) rem(40);
+    }
+  }
+  .country-head .search-sort-select {
+    @include align-items(flex-start);
+    @include flex-direction(column);
+    .mat-form-field {
+      width: 100%;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+      margin-right: 0;
+    }
+  }
+}
